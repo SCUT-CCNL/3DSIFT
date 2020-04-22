@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header\Util">
+      <UniqueIdentifier>{21b9c588-1946-4a7c-bf14-4b561dd68152}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\Util">
+      <UniqueIdentifier>{c97da419-2e2c-4b10-8815-facd50a0b306}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\cMatcher.cc">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\cSIFT3D.cc">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\cUtil.cc">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Util\matrixIO3D.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Util\cTexImage.cc">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Util\common.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Example.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Inculde\cMatcher.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Inculde\cSIFT3D.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Inculde\cUtil.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Inculde\Util\SiftTime.h">
+      <Filter>Header\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Inculde\Util\matrixIO3D.h">
+      <Filter>Header\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Inculde\Util\common.h">
+      <Filter>Header\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Inculde\Util\cMemManager.h">
+      <Filter>Header\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Inculde\Util\cTexImage.h">
+      <Filter>Header\Util</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
