@@ -42,28 +42,28 @@
     <ClCompile Include="Example.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Inculde\cMatcher.h">
+    <ClInclude Include="Include\cMatcher.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Inculde\cSIFT3D.h">
+    <ClInclude Include="Include\cSIFT3D.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Inculde\cUtil.h">
+    <ClInclude Include="Include\cUtil.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Inculde\Util\SiftTime.h">
+    <ClInclude Include="Include\Util\cMemManager.h">
       <Filter>Header\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Inculde\Util\matrixIO3D.h">
+    <ClInclude Include="Include\Util\common.h">
       <Filter>Header\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Inculde\Util\common.h">
+    <ClInclude Include="Include\Util\cTexImage.h">
       <Filter>Header\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Inculde\Util\cMemManager.h">
+    <ClInclude Include="Include\Util\matrixIO3D.h">
       <Filter>Header\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Inculde\Util\cTexImage.h">
+    <ClInclude Include="Include\Util\SiftTime.h">
       <Filter>Header\Util</Filter>
     </ClInclude>
   </ItemGroup>

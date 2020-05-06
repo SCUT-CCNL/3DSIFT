@@ -132,14 +132,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Inculde\cMatcher.h" />
-    <ClInclude Include="Inculde\cSIFT3D.h" />
-    <ClInclude Include="Inculde\cUtil.h" />
-    <ClInclude Include="Inculde\Util\cMemManager.h" />
-    <ClInclude Include="Inculde\Util\common.h" />
-    <ClInclude Include="Inculde\Util\cTexImage.h" />
-    <ClInclude Include="Inculde\Util\matrixIO3D.h" />
-    <ClInclude Include="Inculde\Util\SiftTime.h" />
+    <ClInclude Include="Include\cMatcher.h" />
+    <ClInclude Include="Include\cSIFT3D.h" />
+    <ClInclude Include="Include\cUtil.h" />
+    <ClInclude Include="Include\Util\cMemManager.h" />
+    <ClInclude Include="Include\Util\common.h" />
+    <ClInclude Include="Include\Util\cTexImage.h" />
+    <ClInclude Include="Include\Util\matrixIO3D.h" />
+    <ClInclude Include="Include\Util\SiftTime.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Example.cpp" />
