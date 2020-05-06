@@ -1,5 +1,5 @@
 
-#include "../../Include/cUtil.h"
+#include "../Include/cUtil.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,7 +8,7 @@
 #include <vector>
 #include <sstream>
 
-#include "../../Include/Util/cMemManager.h"
+#include "../Include/Util/cMemManager.h"
 //#include "cTexImage.h"
 //#include "dicom.h"
 using namespace std;

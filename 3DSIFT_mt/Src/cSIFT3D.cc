@@ -1,5 +1,5 @@
 
-#include "../../Include/cSIFT3D.h"
+#include "../Include/cSIFT3D.h"
 
 //#include "dicom.h"
 #include <iostream>
@@ -7,9 +7,9 @@
 #include <algorithm>
 #include <Eigen/Dense>
 
-#include "../../Include/Util/matrixIO3D.h"
-#include "../../Include/cutil.h"
-#include "../../Include/Util/cMemManager.h"
+#include "../Include/Util/matrixIO3D.h"
+#include "../Include/cutil.h"
+#include "../Include/Util/cMemManager.h"
 
 using namespace std;
 using namespace Eigen;
