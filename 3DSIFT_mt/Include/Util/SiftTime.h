@@ -1,5 +1,5 @@
-#ifndef __SIFT_TIME_H
-#define __SIFT_TIME_H
+#ifndef __SIFT_TIME_H__
+#define __SIFT_TIME_H__
 
 #include "common.h"
 

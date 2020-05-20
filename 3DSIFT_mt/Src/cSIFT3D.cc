@@ -157,7 +157,7 @@ CSIFT3D::CSIFT3D(float* volume, int x_dim, int y_dim, int z_dim,
 	Host_Im.SetImageScale(1.0);
 	Host_Im.MallocArrayMemory();
 
-	memcpy(Host_Im._Data, volume, sizeof(float)*x_dim*y_dim*z_dim);
+	memcpy(Host_Im._Data, volume, sizeof(float)*size_t(x_dim)*size_t(y_dim)*size_t(z_dim));
 	data_scale(Host_Im._Data, x_dim, y_dim, z_dim, 1, x_dim, x_dim * y_dim);
 }
 

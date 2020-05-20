@@ -40,6 +40,9 @@
       <Filter>Source\Util</Filter>
     </ClCompile>
     <ClCompile Include="Example.cpp" />
+    <ClCompile Include="Src\Util\readNii.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\cMatcher.h">
@@ -64,6 +67,9 @@
       <Filter>Header\Util</Filter>
     </ClInclude>
     <ClInclude Include="Include\Util\SiftTime.h">
+      <Filter>Header\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Util\readNii.h">
       <Filter>Header\Util</Filter>
     </ClInclude>
   </ItemGroup>
