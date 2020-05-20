@@ -13,8 +13,13 @@ float* readNiiFile(const char *fname, int &nx, int &ny, int &nz) {
     const int64_t nxy = int64_t(nx)*int64_t(ny);
     const int64_t nxyz = int64_t(nx)*int64_t(ny)*int64_t(nz);
     
-    auto niiFloat = copy_nifti_as_float32(nii);
-    float* niiData = static_cast<float*>(niiFloat->data);
+    //if the input file is not FLOAT32, then convert it 
+    if (nii->datatype != DT_FLOAT32) {
+        auto niiFloat = copy_nifti_as_float32(nii);
+        nifti_image_free(nii);
+        nii = niiFloat;
+    }
+    float *niiData = static_cast<float*>(nii->data);
 
     //malloc data
     float *data = new float[nxyz];
@@ -30,7 +35,5 @@ float* readNiiFile(const char *fname, int &nx, int &ny, int &nz) {
     }
 
     nifti_image_free(nii);
-    nifti_image_free(niiFloat);
-
     return data;
 }
