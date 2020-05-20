@@ -7,7 +7,7 @@
 #define SIFT_LIBRARY_API __declspec(dllimport)
 #endif
 
-#define CHECK_ENABLE
+//#define CHECK_ENABLE
 //#define JR_DEBUG
 #include <vector>
 #include <iostream>
