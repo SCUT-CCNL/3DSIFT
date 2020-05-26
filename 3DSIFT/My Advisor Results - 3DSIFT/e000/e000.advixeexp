@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
  <rdmgr>
-  <timestamp type="u64_t">1590488163</timestamp>
+  <timestamp type="u64_t">1590488606</timestamp>
   <hostname>DESKTOP-Pascal</hostname>
   <os>windows</os>
   <product>Intel® Advisor 2019</product>
