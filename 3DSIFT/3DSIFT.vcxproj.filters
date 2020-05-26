@@ -22,6 +22,9 @@
     <Filter Include="Header\layNii">
       <UniqueIdentifier>{2533ce81-7f1f-49c3-bab6-7a9a9037974c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\layNii">
+      <UniqueIdentifier>{c80895f4-4823-4111-8d75-e12a4397859a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\cMatcher.cc">
@@ -47,13 +50,13 @@
       <Filter>Source\Util</Filter>
     </ClCompile>
     <ClCompile Include="3party\layNii\dep\laynii_lib.cpp">
-      <Filter>Header\layNii</Filter>
+      <Filter>Source\layNii</Filter>
     </ClCompile>
     <ClCompile Include="3party\layNii\dep\nifti2_io.cpp">
-      <Filter>Header\layNii</Filter>
+      <Filter>Source\layNii</Filter>
     </ClCompile>
     <ClCompile Include="3party\layNii\dep\znzlib.cpp">
-      <Filter>Header\layNii</Filter>
+      <Filter>Source\layNii</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
