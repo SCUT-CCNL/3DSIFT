@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <omp.h>
 #include <Eigen/Dense>
 
 #include "../Include/Util/matrixIO3D.h"

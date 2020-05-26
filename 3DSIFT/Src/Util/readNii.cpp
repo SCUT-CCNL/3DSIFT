@@ -1,6 +1,6 @@
 #include "../../Include/Util/readNii.h"
 
-#include <laynii_lib.h>
+#include "../../3party/layNii/dep/laynii_lib.h"
 
 float* readNiiFile(const char *fname, int &nx, int &ny, int &nz) {
 

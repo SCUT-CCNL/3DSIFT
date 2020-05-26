@@ -54,12 +54,13 @@ extern "C" {
 */
 /* #define HAVE_FDOPEN */
 
+#define HAVE_ZLIB
 
 #ifdef HAVE_ZLIB
 #if defined(ITKZLIB) && !defined(ITK_USE_SYSTEM_ZLIB)
 #include "itk_zlib.h"
 #else
-#include "zlib.h"
+#include "../../zlib/include/zlib.h"
 #endif
 #endif
 

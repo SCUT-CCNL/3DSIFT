@@ -15,6 +15,7 @@
     <ProjectGuid>{59BEC71E-E913-476C-AB52-3D8D9B8884FB}</ProjectGuid>
     <RootNamespace>My3DSIFTmt</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectName>3DSIFT</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -43,12 +44,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)\3party\layNii\include;$(ProjectDir)\3party\Eigen;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\3party\layNii\lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+    <IncludePath>$(ProjectDir)\3party\Eigen;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\3party\zlib\lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)\3party\layNii\include;$(ProjectDir)\3party\Eigen;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\3party\layNii\lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+    <IncludePath>$(ProjectDir)\3party\Eigen;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\3party\zlib\lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -61,7 +62,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>zlibstaticd.lib;layNiid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>zlibstaticd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -79,10 +80,15 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>zlibstatic.lib;layNii.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>zlibstatic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="3party\layNii\dep\laynii_lib.h" />
+    <ClInclude Include="3party\layNii\dep\nifti1.h" />
+    <ClInclude Include="3party\layNii\dep\nifti2.h" />
+    <ClInclude Include="3party\layNii\dep\nifti2_io.h" />
+    <ClInclude Include="3party\layNii\dep\znzlib.h" />
     <ClInclude Include="Include\cMatcher.h" />
     <ClInclude Include="Include\cSIFT3D.h" />
     <ClInclude Include="Include\cUtil.h" />
@@ -94,6 +100,9 @@
     <ClInclude Include="Include\Util\SiftTime.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="3party\layNii\dep\laynii_lib.cpp" />
+    <ClCompile Include="3party\layNii\dep\nifti2_io.cpp" />
+    <ClCompile Include="3party\layNii\dep\znzlib.cpp" />
     <ClCompile Include="Example.cpp" />
     <ClCompile Include="Src\cMatcher.cc" />
     <ClCompile Include="Src\cSIFT3D.cc" />

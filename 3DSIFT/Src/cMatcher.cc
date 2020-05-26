@@ -7,8 +7,7 @@
 #include<fstream>
 #include<time.h>
 #include<cfloat>
-#include<Eigen/core>
-#include<Eigen/dense>
+#include<omp.h>
 
 using namespace std;
 
