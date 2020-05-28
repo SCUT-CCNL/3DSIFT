@@ -1,54 +1,64 @@
 #include "Include/cSIFT3D.h"
-#include "Include/Util/matrixIO3D.h"
 #include "Include/Util/readNii.h"
+#include "Include/cMatcher.h"
+#include <vector>
 
 using namespace std;
 
-int main(){
+int main() {
 
-    const char *Ref = R"(D:\SIFT_EXPERI_DATA\Hole_intersect\sin_z\624_500-Ori440Margin92_92_30-m12_std8_r8-intersect_6000-16+8sinz-GN.bin)";
-    const char *RefNii = R"(D:\SIFT_EXPERI_DATA\Hole_intersect\VisualNii_Float\624_500-Ori440Margin92_92_30-m12_std8_r8-intersect_6000-16+8sinz-GN.nii.gz)";
-	//const char *path_ = R"(F:\SIFT_EXPERI_LOG\DEBUG\Voxel_384_ori_GN_.txt)";
+    const char *RefNiiPath = R"(../Example/Torus_Ref.nii.gz)";
+    const char *TarNiiPath = R"(../Example/Torus_Def.nii.gz)";
 
-	int m, n, p;
-	float* SIFT_Vol = nullptr;
-	ReadMatrixFromDisk(Ref, &m, &n, &p, &SIFT_Vol);
-    cout << m << " " << n << " " << p << endl;
+    
+    //read reference image
+    int nx = 0, ny = 0, nz = 0;
+    float* refVolNii = nullptr;
+    refVolNii = readNiiFile(RefNiiPath, nx, ny, nz);
+    cout << "Dimensions of reference image:" << nx << " " << ny << " " << nz << endl;
 
-    int m1, n1, p1;
-    float* SIFT_VolNii = nullptr;
-    SIFT_VolNii = readNiiFile(RefNii, m1, n1, p1);
-    cout << m1 << " " << n1 << " " << p1 << endl;
+    //extract keypoint from ref image
+    auto SIFT_ref = CPUSIFT::CSIFT3DFactory::CreateCSIFT3D(refVolNii, nx, ny, nz);
+    SIFT_ref->KpSiftAlgorithm();
+    auto vRefKp = SIFT_ref->GetKeypoints();
+    
 
-    float bias = 0;
-    int64_t count = 0;
-    const int64_t nx = m;
-    const int64_t nxy = m*n;
-    for (int64_t x = 0; x < m; ++x) {
-        for (int64_t y = 0; y < n; ++y) {
-            for (int64_t z = 0; z < p; ++z) {
-                int64_t idx = z* nxy + y*nx + x;
-                float vBin = SIFT_Vol[idx];
-                float vNii = SIFT_VolNii[idx];
+    
+    //read target image
+    int nxTar = 0, nyTar = 0, nzTar = 0;
+    float* tarVolNii = nullptr;
+    tarVolNii = readNiiFile(TarNiiPath, nxTar, nyTar, nzTar);
+    cout << "Dimensions of target image:" << nxTar << " " << nyTar << " " << nzTar << endl;
+    //extract keypoint from tar image
+    auto SIFT_tar = CPUSIFT::CSIFT3DFactory::CreateCSIFT3D(tarVolNii, nxTar, nyTar, nzTar);
+    SIFT_tar->KpSiftAlgorithm();
+    auto vTarKp = SIFT_tar->GetKeypoints();
+    
 
-                float tmp = abs(vNii - vBin);
-                if (tmp > 0.01f) {
-                    count += 1;
-                    std::cerr << "warning, high bias at (" << x << "," << y << "," << z << ") : " << tmp << std::endl;
-                }
-                bias += tmp;
-            }
-        }
+    //match procedure
+    CPUSIFT::muBruteMatcher matcher;
+    //the coordinates of matched keypoint pairs in reference image and target image.
+    vector<CPUSIFT::Cvec> matchRefCoor, matchTarCoor;
+    //threshold of filtering matches
+    const float threshold = 0.85f;
+    matcher.enhancedMatch(matchRefCoor, matchTarCoor, vRefKp, vTarKp, threshold);
+
+    cout << "Matched Points: reference coordinate(x,y,z);target coordinate(x,y,z)" << endl;
+    for (int i = 0; i < matchRefCoor.size(); ++i) {
+        cout <<
+            matchRefCoor[i].x << "," <<
+            matchRefCoor[i].y << "," <<
+            matchRefCoor[i].z << ";" <<
+
+            matchTarCoor[i].x << "," <<
+            matchTarCoor[i].y << "," <<
+            matchTarCoor[i].z << endl;
     }
 
-    std::cout << "total bias:" << bias<<std::endl;
-    std::cout << "bias num:" << count << std::endl;
-
-	auto CSIFT3D = CPUSIFT::CSIFT3DFactory::CreateCSIFT3D(SIFT_Vol, m, n, p);
-
-	CSIFT3D->KpSiftAlgorithm();
-	auto vKP = CSIFT3D->GetKeypoints();
-
+    delete[] refVolNii;
+    delete[] tarVolNii;
+    delete SIFT_ref;
+    delete SIFT_tar;
 
 	return 0;
 }
